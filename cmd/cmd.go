@@ -3,7 +3,7 @@ package cmd
 import (
 	"github.com/urfave/cli/v2"
 
-	"bro/setting"
+	"github.com/go-again/bro/setting"
 )
 
 func setup(ctx *cli.Context) {

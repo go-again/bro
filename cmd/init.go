@@ -12,7 +12,7 @@ import (
 	"github.com/unknwon/log"
 	"github.com/urfave/cli/v2"
 
-	"bro/setting"
+	"github.com/go-again/bro/setting"
 )
 
 var Template []byte

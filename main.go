@@ -7,7 +7,7 @@ import (
 	"github.com/unknwon/log"
 	"github.com/urfave/cli/v2"
 
-	"bro/cmd"
+	"github.com/go-again/bro/cmd"
 )
 
 const version = "2022.12.1"

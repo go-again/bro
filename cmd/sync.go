@@ -13,7 +13,7 @@ import (
 	"github.com/urfave/cli/v2"
 	"gopkg.in/fsnotify/fsnotify.v1"
 
-	"bro/setting"
+	"github.com/go-again/bro/setting"
 )
 
 var Sync = &cli.Command{

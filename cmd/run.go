@@ -19,7 +19,7 @@ import (
 	"github.com/xlab/treeprint"
 	"gopkg.in/fsnotify/fsnotify.v1"
 
-	"bro/setting"
+	"github.com/go-again/bro/setting"
 )
 
 var (
@@ -154,7 +154,7 @@ func notify(cmds []*command, doneChan *chan bool) {
 
 		log.Info("Running: %s", cmd)
 		if setting.Config.Debug {
-			log.Debug("Environment: %v", command.Environ())
+			log.Debug("Environment: %v", command.Env)
 		}
 		runningCmd = command
 		done := make(chan error)
