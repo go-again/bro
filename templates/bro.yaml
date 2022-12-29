@@ -1,0 +1,45 @@
+# Additional debug output
+debug: false
+
+run:
+  # Commands to run on start
+  init: []
+  # Commands to run
+  commands:
+    - CGO_ENABLED=0 go build
+    - ./$PROJECT
+
+  watch:
+    # Directories to watch
+    directories:
+      - .
+    # Extensions to watch
+    extensions:
+      - .go
+    # Watch all sub-directories
+    subDirectories: true
+    # Follow symlinks in sub-directories
+    symlinks: true
+
+  ignore:
+    # Directories to exclude from watching
+    directories:
+      - .git
+      - .idea
+      - .vscode
+    # Regexps for ignoring specific files
+    files: []
+
+  environment:
+    # Load environment variables from files
+    files: []
+    # Additional environment variables
+    variables:
+      - FOO=BAR
+
+  # Delay between runs in milliseconds
+  delay: 1500
+  # Graceful restart by sending interrupt signal
+  graceful: true
+  # Timeout for interrupt signal in seconds
+  timeout: 1
