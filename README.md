@@ -31,7 +31,7 @@ GLOBAL OPTIONS:
 
 ## Quick Start
 
-To work with a new project, you need `bro.yaml` file under the work directory. You can quickly generate by running:
+To work with a new project, you need `bro.yaml` file under your work directory. You can quickly generate it by running:
 
 ```
 $ bro init
@@ -41,7 +41,7 @@ $ bro init
 
 ### How do I gracefully restart an application?
 
-Change following values in your `bro.yaml`:
+Change the following values in your `bro.yaml`:
 
 ```yaml
 run:
@@ -54,4 +54,4 @@ This will send `os.Interrupt` signal first and wait for `5` seconds before killi
 
 ## Configuration
 
-An example configuration is available as [bro.yaml](templates/bro.yaml).
+An example configuration is available as [`bro.yaml`](templates/bro.yaml).

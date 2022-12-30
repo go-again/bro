@@ -48,7 +48,7 @@ func initCommand(ctx *cli.Context) error {
 	}
 
 	data = bytes.Replace(data, []byte("$PROJECT"), []byte(project), -1)
-	if err := os.WriteFile(setting.ConfigName, data, os.ModePerm); err != nil {
+	if err := os.WriteFile(setting.ConfigName, data, 0644); err != nil {
 		log.Fatal("Failed to generate default %s: %v", setting.ConfigName, err)
 	}
 	return nil

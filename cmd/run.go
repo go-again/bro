@@ -296,7 +296,6 @@ func runCommand(ctx *cli.Context) error {
 	//<-initDone
 
 	go func() {
-
 		for {
 			select {
 			case e := <-watcher.Events:
