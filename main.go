@@ -10,7 +10,7 @@ import (
 	"github.com/go-again/bro/cmd"
 )
 
-var version = "2022.12.1"
+var version = "2022.02.1"
 
 var (
 

@@ -16,7 +16,10 @@ func init() {
 	log.TimeFormat = "01-02 15:04:05"
 }
 
-const ConfigName = "bro.yaml"
+const (
+	ConfigName      = "bro.yaml"
+	LocalConfigName = ".bro.yaml"
+)
 
 var (
 	WorkDir string
@@ -88,16 +91,22 @@ func InitSetting() {
 		log.Fatal("Failed to get current directory: %v", err)
 	}
 
-	confPath := path.Join(WorkDir, ConfigName)
-	if !com.IsFile(confPath) {
-		log.Fatal("%s not found in current directory", ConfigName)
-	}
-	if data, err := os.ReadFile(confPath); err != nil {
-		log.Fatal("Failed to read %s: %v", ConfigName, err)
-	} else {
-		if err = yaml.Unmarshal(data, &Config); err != nil {
-			log.Fatal("Failed to parse %s: %v", ConfigName, err)
+	var confLoaded bool
+	for _, confFile := range []string{ConfigName, LocalConfigName} {
+		confPath := path.Join(WorkDir, confFile)
+		if com.IsFile(confPath) {
+			if data, err := os.ReadFile(confPath); err != nil {
+				log.Fatal("Failed to read %s: %v", confFile, err)
+			} else {
+				if err = yaml.Unmarshal(data, &Config); err != nil {
+					log.Fatal("Failed to parse %s: %v", confFile, err)
+				}
+			}
+			confLoaded = true
 		}
+	}
+	if !confLoaded {
+		log.Fatal("Neither %s nor %s found in current directory", ConfigName, LocalConfigName)
 	}
 
 	if Config.Run.Timeout == 0 {

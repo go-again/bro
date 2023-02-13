@@ -55,3 +55,4 @@ This will send `os.Interrupt` signal first and wait for `5` seconds before killi
 ## Configuration
 
 An example configuration is available as [`bro.yaml`](templates/bro.yaml).
+You can override a config value in a `.bro.yaml` file which is useful for local development.
